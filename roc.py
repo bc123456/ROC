@@ -1,13 +1,13 @@
+from sklearn.metrics import confusion_matrix, accuracy_score, roc_auc_score, roc_curve
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
 def plot_ROC(y_train_true, y_train_prob, y_test_true, y_test_prob):
     '''
     a funciton to plot the ROC curve for train labels and test labels.
     Use the best threshold found in train set to classify items in test set.
     '''
-    from sklearn.metrics import confusion_matrix, accuracy_score, roc_auc_score, roc_curve
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-    %matplotlib inline
-    
     fpr_train, tpr_train, thresholds_train = roc_curve(y_train_true, y_train_prob, pos_label =True)
     sum_sensitivity_specificity_train = tpr_train + (1-fpr_train)
     best_threshold_id_train = np.argmax(sum_sensitivity_specificity_train)
@@ -50,8 +50,8 @@ def plot_ROC(y_train_true, y_train_prob, y_test_true, y_test_prob):
     print 'Test Confusion Matrix:'
     print cm_test
     
-    tpr_score = cm_test[1][1]/(cm_test[1][1] + cm_test[1][0])
-    fpr_score = cm_test[0][1]/(cm_test[0][0]+ cm_test[0][1])
+    tpr_score = float(cm_test[1][1])/(cm_test[1][1] + cm_test[1][0])
+    fpr_score = float(cm_test[0][1])/(cm_test[0][0]+ cm_test[0][1])
     
     ax2 = fig.add_subplot(122)
     curve1 = ax2.plot(fpr_test, tpr_test)
