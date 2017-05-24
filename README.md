@@ -48,4 +48,4 @@ Test Confusion Matrix:
 [[2 0]
  [2 0]]
 ```
-![](/Users/brian/git_repository/ROC/roc_curve.png)
+![](roc_curve.png)
