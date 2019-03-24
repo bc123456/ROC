@@ -20,10 +20,10 @@ def plot_ROC(y_train_true, y_train_prob, y_test_true, y_test_prob):
     acc_train = accuracy_score(y_train_true, y_train)
     auc_train = roc_auc_score(y_train_true, y_train)
     
-    print 'Train Accuracy: %s ' %acc_train
-    print 'Train AUC: %s ' %auc_train
-    print 'Train Confusion Matrix:'
-    print cm_train
+    print('Train Accuracy: %s ' %acc_train)
+    print('Train AUC: %s ' %auc_train)
+    print('Train Confusion Matrix:')
+    print(cm_train)
     
     fig = plt.figure(figsize=(10,5))
     ax = fig.add_subplot(121)
@@ -45,10 +45,10 @@ def plot_ROC(y_train_true, y_train_prob, y_test_true, y_test_prob):
     acc_test = accuracy_score(y_test_true, y_test)
     auc_test = roc_auc_score(y_test_true, y_test)
     
-    print 'Test Accuracy: %s ' %acc_test
-    print 'Test AUC: %s ' %auc_test
-    print 'Test Confusion Matrix:'
-    print cm_test
+    print('Test Accuracy: %s ' %acc_test)
+    print('Test AUC: %s ' %auc_test)
+    print('Test Confusion Matrix:')
+    print(cm_test)
     
     tpr_score = float(cm_test[1][1])/(cm_test[1][1] + cm_test[1][0])
     fpr_score = float(cm_test[0][1])/(cm_test[0][0]+ cm_test[0][1])
@@ -65,5 +65,7 @@ def plot_ROC(y_train_true, y_train_prob, y_test_true, y_test_prob):
     plt.title('ROC curve (Test), AUC = %.4f'%auc_test)
     plt.savefig('ROC', dpi = 500)
     plt.show()
+
+    print(f'Best Threshold: {best_threshold}')
     
     return best_threshold
