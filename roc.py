@@ -88,13 +88,11 @@ def construct_plotly_graph(fpr1, tpr1, thresholds1, best_fpr1, best_tpr1, auc1,
     # Final plot adjustments
     fig.update_layout(
         width=1000,
-        height=500,
-        xaxis=dict(title='False Positive Rate'),
-        yaxis=dict(title='True Positive Rate'),
-        
+        height=550,
+        showlegend=False,
     )
-    fig.update_xaxes(range=[0, 1])
-    fig.update_yaxes(range=[0, 1])    
+    fig.update_xaxes(title_text='False Positive Rate', range=[0, 1])
+    fig.update_yaxes(title_text='True Positive Rate', range=[0, 1])    
     
     fig.show()
     
